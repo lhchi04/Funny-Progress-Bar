@@ -12,6 +12,9 @@ def main():
         printIn()
     elif mode == "out":
         printOut()
+    elif mode == "loopr":
+        pos = int(input("Enter position: "))
+        printLoopRight(pos)
     
 def printLeft():
     for i in reversed(range(0, length)):
@@ -33,6 +36,14 @@ def printIn():
     for k in range(0,(length+1)//2):
         arr[k] = 1
         arr[length-1-k] = 1
+        printArray(arr)
+
+def printLoopRight(pos):
+    for k in range(pos, length):
+        arr[k] = 1
+        printArray(arr)
+    for k in range(0, pos):
+        arr[k] = 1
         printArray(arr)
 
 def printArray(arr):
