@@ -34,13 +34,9 @@ def printOut():
         printArray(arr)
 
 def printIn():
-    j = 0
-    i = length-1
     for k in range(0,(length+1)//2):
-        arr[i] = 1
-        arr[j] = 1
-        i -= 1
-        j += 1
+        arr[k] = 1
+        arr[length-1-k] = 1
         printArray(arr)
 
 def printArray(arr):
