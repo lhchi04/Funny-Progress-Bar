@@ -41,6 +41,9 @@ def main():
     elif mode == "2ddiagonal":
         arr = [[0 for i in range(length)] for j in range(length)]
         print2dDiagonal(arr)
+    elif mode == "2dantidiagonal":
+        arr = [[0 for i in range(length)] for j in range(length)]
+        print2dAntiDiagonal(arr)
     
 def printLeft(arr):
     for i in reversed(range(len(arr))):
@@ -123,7 +126,27 @@ def print2dDiagonal(arr):
             y += 1
         z -= 1
 
-# def print2dAntiDiagonal(arr):
+def print2dAntiDiagonal(arr):
+    z = 1
+    for i in reversed(range(len(arr))):
+        x = 0
+        y = i
+        for j in range(z):
+            arr[x][y] = 1
+            printSquare(arr)
+            x += 1
+            y += 1
+        z += 1
+    z = len(arr)-1
+    for i in range(1, len(arr)):
+        y = 0
+        x = i
+        for j in range(z):
+            arr[x][y] = 1
+            printSquare(arr)
+            x += 1
+            y += 1
+        z -= 1
 
 def printSquare(arr):
     for x in range(0, len(arr)):
@@ -131,7 +154,7 @@ def printSquare(arr):
             printBlock(arr[x][y])
         print()
     delete_multiple_lines(len(arr))
-    time.sleep(0.5)
+    time.sleep(0.1)
 
 def printArray(arr):
     print("[", end="")
@@ -139,7 +162,7 @@ def printArray(arr):
         printBlock(x)
     print("]", end="")
     print(end="\r")
-    time.sleep(0.5)
+    time.sleep(0.1)
 
 def printBlock(a):
     if a == 0:
